@@ -3,19 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./scripts/style.css" />
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <script src="https://momentjs.com/downloads/moment.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="css/mdb.min.css" rel="stylesheet">
+<!-- Your custom styles (optional) -->
+
+
 <title>SportsOnTime</title>
+
 </head>
-<body>
+<body id="body">
     <!--header-->
     <div><img src="./Assets/SportsTime.png" id="headerLogo" name="headerLogo" class="headerLogo" alt="SportsOnTime Organ. logo as header.">
     </div>
@@ -37,12 +48,38 @@
         <div class="input-group-prepend">
             <span class="input-group-text" id="addon-wrapping">What Time?</span>
           </div>
-          <input type="text" class="form-control" placeholder="Where do plan to watch it? Mumbai? Sharjah? Waterloo?" aria-label="Username" aria-describedby="addon-wrapping">
+          <input id="loci" type="text" class="form-control" placeholder="Where do plan to watch it? Mumbai? Sharjah? Waterloo?" aria-label="Username" aria-describedby="addon-wrapping">
         </div>
-        <button type="button" class="btn btn-primary">Search</button>
+        <button onclick="getSport()" id="searchBtn" type="button" class="btn btn-primary">Search</button>
     </div>
     
     <!--end of input box for game type and prefered location time-->
+
+    <!--Trigger/Open The Modal-->
+
+   
+    <div id="myModal" class="modal">
+
+      <!-- Modal Content-->
+      <div class="modal-content">
+        
+        <p>
+          So, you like cricket eh?..
+        </p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Series Name</th>
+              <th scope="col">UTC Time</th>
+              <th scope="col">Toronto Time</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+          </tbody>
+        </table>
+        <p style="text-align:center">Click Outside Modal to Exit</p>
+      </div>
+    </div>
 
     <!-- right news feed rss-->
 
@@ -82,31 +119,74 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
+   </div>
   </div>
-
+     
 <!-- center slide show ends-->
-  </div>
-</div>
 
-  </div>
-    
-<!--Trigger/Open The Modal-->
+<!-- left ad begins-->
+<a href="https://www.nike.com/ca/" target="_blank"> 
+  <img src="Assets\ad1\01b.jpg" alt="nike website link">
+</a>
+<!-- left ad ends-->
 
-    <button id="myBtn">
-      Open Modal
-    </button>
-<!--The Modal-->
-    <div id="myModal" class="modal">
+  <!-- Footer -->
+<footer class="page-footer font-small cyan darken-3">
 
-      <!-- Modal Content-->
-      <div class="modal-content">
-      <span class="close">&times;</span>
-      <p>
-        Some text in the Modal..
-      </p>
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!-- Grid row-->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-12 py-5">
+        <div class="mb-5 flex-center">
+
+          <!-- Facebook -->
+          <a class="fb-ic">
+            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!-- Twitter -->
+          <a class="tw-ic">
+            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!-- Google +-->
+          <a class="gplus-ic">
+            <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Linkedin -->
+          <a class="li-ic">
+            <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Instagram-->
+          <a class="ins-ic">
+            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Pinterest-->
+          <a class="pin-ic">
+            <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+          </a>
+        </div>
+      </div>
+      <!-- Grid column -->
 
     </div>
-    </div>
-    
+    <!-- Grid row-->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://mdbootstrap.com/"> Coding Bootcamp - Sports On Time </a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+    <script src="scripts/schedule.js"></script>
+    <script src="./scripts/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,44 @@
+/*variable*/
+:root{
+    --primary: #b5e61d;
+    --secondary: #3399ff;
+    
+}
+/*reset */
+#body{
+    background: #b5e61d;
+    margin: 0;
+    padding: 0;
+}
+
+}
+/* base styles */
+
+
+
+/*fonts */
+
+/* mobile styles */
+
+/* small tablet styles */
+
+@media screen and (min-width: 620px){
+
+
+}
+
+/* large tablets & laptop styles */
+
+@media screen and (min-width: 960px){
+
+
+}
+
+/* desktop styles */
+@media screen and (min-width: 1200){
+
+}
+
+/*grid setting*/
+
+
